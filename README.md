@@ -1,4 +1,4 @@
-
+```
 wget https://raw.githubusercontent.com/OBarronCS/.dotfiles/master/.vimrc
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -10,4 +10,4 @@ vim +'PlugInstall --sync' +qa
 cd ~/.vim/plugged/coc.nvim
 npm install
 cd -
-
+```
