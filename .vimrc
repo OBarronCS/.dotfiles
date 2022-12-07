@@ -24,8 +24,9 @@ set smartindent "C style indentation
 set ignorecase " Ignore case when searching
 set smartcase " If searching for capitals, include only capitals 
 set showmatch " Show matching words during search
-set hlsearch " Highlighting during search
+" set hlsearch " Highlighting during search
 set incsearch
+set nohlsearch " After search, stop highlighting
 
 set scrolloff=8
 
@@ -42,9 +43,9 @@ set showmode " Show what mode I am currently in
 call plug#begin()
     Plug 'rakr/vim-one'
     Plug 'jiangmiao/auto-pairs'
-    "Plug '~/.fzf' "Since I downloaded fzf using git
-    "Plug 'junegunn/fzf.vim' "Fuzzy searching!
-    Plug 'ctrlpvim/ctrlp.vim' " Fuzzy searching, without extra dependency
+    Plug '~/.fzf' "Since I downloaded fzf using git
+    Plug 'junegunn/fzf.vim' "Fuzzy searching!
+    "Plug 'ctrlpvim/ctrlp.vim' " Fuzzy searching, without extra dependency
     Plug 'preservim/nerdtree'
     Plug 'preservim/nerdcommenter'
     
@@ -58,7 +59,15 @@ set background=dark
 
 " let mapleader = Set space as custom keyboard shortcut prefix
 " nnoremap <leader>ps :Files
-" nnoremap <C-p> :Files<CR>
+nnoremap <C-p> :Files<CR>
+map <C-F> :Lines<CR>
+
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
+
+
+
+
 nnoremap <C-n> :NERDTreeToggle<CR>
 
 "Vim register Ctrl/ as CTRL_
