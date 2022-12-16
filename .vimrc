@@ -55,10 +55,10 @@ call plug#end()
 
 colorscheme one
 set background=dark
+"hi Normal guibg=NONE ctermbg=NONE
 
-
-" let mapleader = Set space as custom keyboard shortcut prefix
-" nnoremap <leader>ps :Files
+let mapleader = " " "Set space as custom keyboard shortcut prefix
+nnoremap <leader>pv :Ex<CR>
 nnoremap <C-p> :Files<CR>
 map <C-F> :Lines<CR>
 
