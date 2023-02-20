@@ -48,11 +48,11 @@ call plug#begin()
     "Plug 'ctrlpvim/ctrlp.vim' " Fuzzy searching, without extra dependency
     Plug 'preservim/nerdtree'
     Plug 'preservim/nerdcommenter'
-    
+    Plug 'vim-airline/vim-airline' 
     Plug 'neoclide/coc.nvim', {'branch':'release'}
-
+    " Telescope, treesitter, harpoon, nvim commenter, nvim cmp
 call plug#end()
-
+"let g:airline#extensions#tabline#enabled = 1
 colorscheme one
 set background=dark
 "hi Normal guibg=NONE ctermbg=NONE
