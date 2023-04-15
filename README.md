@@ -3,7 +3,7 @@ cd ~
 git clone https://github.com/OBarronCS/.dotfiles.git
 
 # These lines will fail if they would override existing files
-ln -s ~/.dotfiles/.tmux.conf ~/.vimrc 
+ln -s ~/.dotfiles/.vimrc ~/.vimrc 
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 
 cd -
