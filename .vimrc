@@ -9,8 +9,8 @@ set relativenumber " relative line numbers
 set signcolumn=yes " Extra error/message column on left
 
 set mouse=a " mouse editing
-
-" set termguicolors " Makes colors work in tmux
+set ttymouse=sgr " Make mouse work correctly in tmux. xterm2 also works
+set termguicolors " Makes colors work in tmux
 
 
 set tabstop=4 " Spaces in a tab
@@ -39,21 +39,16 @@ set cmdheight=2
 
 set showmode " Show what mode I am currently in
 
-
 call plug#begin()
-    Plug 'rakr/vim-one'
     Plug 'jiangmiao/auto-pairs'
     Plug '~/.fzf' "Since I downloaded fzf using git
     Plug 'junegunn/fzf.vim' "Fuzzy searching!
-    "Plug 'ctrlpvim/ctrlp.vim' " Fuzzy searching, without extra dependency
     Plug 'preservim/nerdtree'
     Plug 'preservim/nerdcommenter'
     Plug 'vim-airline/vim-airline' 
-    Plug 'neoclide/coc.nvim', {'branch':'release'}
     " Telescope, treesitter, harpoon, nvim commenter, nvim cmp
 call plug#end()
 "let g:airline#extensions#tabline#enabled = 1
-colorscheme one
 set background=dark
 "hi Normal guibg=NONE ctermbg=NONE
 
@@ -65,46 +60,23 @@ map <C-F> :Lines<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
-
-
-
 nnoremap <C-n> :NERDTreeToggle<CR>
 
+" Comment empty lines
+let g:NERDCommentEmptyLines = 1
+
 "Vim register Ctrl/ as CTRL_
+vmap <C-/> <plug>NERDCommenterToggle
+
 nmap <C-_> <plug>NERDCommenterToggle
+nmap <C-/> <plug>NERDCommenterToggle
+
 imap <C-_> <C-o><plug>NERDCommenterToggle
+imap <C-/> <C-o><plug>NERDCommenterToggle
+
 " Visual mode as well
 vmap <C-_> <plug>NERDCommenterToggle
-let g:coc_disable_startup_warning = 1
-highlight CocFloating ctermbg=black
-
 
 " Defaults to 4000
 set updatetime=300
 
-" Arrow keys to select options in drop down
-inoremap <expr> <Down> coc#pum#visible() ? coc#pum#next(1) : "\<Down>"
-inoremap <expr> <Up> coc#pum#visible() ? coc#pum#prev(1) : "\<Up>"
-
-" Tab and Enter to trigger autocomplete
-inoremap <silent><expr> <Tab> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<Tab>"
-inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
-function! CheckBackspace() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
-
-" Jump to between diagnostic message
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-" More mappings here: https://github.com/neoclide/coc.nvim
