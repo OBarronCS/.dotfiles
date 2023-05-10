@@ -34,7 +34,6 @@ set scrolloff=8
 
 set hidden " Keep extra buffer of save state, hides files instead of closes it
 
-set signcolumn=yes
 set cmdheight=2
 
 set showmode " Show what mode I am currently in
