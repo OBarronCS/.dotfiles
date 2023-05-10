@@ -8,7 +8,7 @@ ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf
 
 cd -
 
-# Install Vim plugins
+# Install vim-plug
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
