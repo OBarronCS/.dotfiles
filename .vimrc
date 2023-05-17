@@ -39,7 +39,8 @@ set cmdheight=2
 set showmode " Show what mode I am currently in
 
 call plug#begin()
-    Plug 'jiangmiao/auto-pairs'
+    Plug 'Raimondi/delimitMate'
+    "Plug 'jiangmiao/auto-pairs'
     Plug '~/.fzf' "Since I downloaded fzf using git
     Plug 'junegunn/fzf.vim' "Fuzzy searching!
     Plug 'preservim/nerdtree'

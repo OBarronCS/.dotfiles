@@ -1,0 +1,4 @@
+
+set bind-tty-special-chars off
+"\C-w":unix-filename-rubout
+
