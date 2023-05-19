@@ -15,8 +15,4 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 
 vim +'PlugInstall --sync' +qa
 
-# May need to manually build
-cd ~/.vim/plugged/coc.nvim
-npm install
-cd -
 ```
