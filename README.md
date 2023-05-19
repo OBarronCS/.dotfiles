@@ -1,10 +1,11 @@
-```
+```bash
 cd ~
 git clone https://github.com/OBarronCS/.dotfiles.git
 
 # These lines will fail if they would override existing files
 ln -s ~/.dotfiles/.vimrc ~/.vimrc 
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf 
+ln -s ./.dotfiles/.inputrc .inputrc
 
 cd -
 
