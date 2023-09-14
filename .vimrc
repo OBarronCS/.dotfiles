@@ -38,6 +38,8 @@ set cmdheight=2
 
 set showmode " Show what mode I am currently in
 
+
+if ! empty(globpath(&rtp, 'autoload/plug.vim')) 
 call plug#begin()
     Plug 'Raimondi/delimitMate'
     "Plug 'jiangmiao/auto-pairs'
@@ -48,6 +50,9 @@ call plug#begin()
     Plug 'vim-airline/vim-airline' 
     " Telescope, treesitter, harpoon, nvim commenter, nvim cmp
 call plug#end()
+endif
+
+
 "let g:airline#extensions#tabline#enabled = 1
 set background=dark
 "hi Normal guibg=NONE ctermbg=NONE
@@ -60,7 +65,7 @@ map <C-F> :Lines<CR>
 nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 
-nnoremap <C-n> :NERDTreeToggle<CR>
+nnoremap <leader>e :NERDTreeToggle<CR>
 
 " Comment empty lines
 let g:NERDCommentEmptyLines = 1
