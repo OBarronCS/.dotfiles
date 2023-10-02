@@ -4,6 +4,8 @@
 ln -s ~/.dotfiles/.vimrc ~/.vimrc 
 ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf 
 ln -s ~/.dotfiles/.inputrc ~/.inputrc
+mkdir -p ~/.config/kitty
+ln -s ~/.dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
