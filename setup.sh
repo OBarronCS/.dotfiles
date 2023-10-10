@@ -8,8 +8,11 @@ mkdir -p ~/.config/kitty
 ln -s ~/.dotfiles/kitty.conf ~/.config/kitty/kitty.conf
 
 # Install fzf
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-~/.fzf/install --all
+if [ ! -d "${HOME}/.fzf" ]; then
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install --all
+fi
+
 
 # Sudo often not in containers
 if command -v sudo &> /dev/null
@@ -23,16 +26,21 @@ then
 fi
  
 # Install vim-plug
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-vim +'PlugInstall --sync' +qa
+if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
+
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+    vim +'PlugInstall --sync' +qa
+fi
 
 # Install tmux plugin manager
-mkdir -p ~/.tmux/plugins
-git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
+    mkdir -p ~/.tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
+fi
 
 
-# Install tmux plugins
-~/.tmux/plugins/tpm/bin/install_plugins
 
