@@ -47,7 +47,8 @@ call plug#begin()
     Plug 'junegunn/fzf.vim' "Fuzzy searching!
     Plug 'preservim/nerdtree'
     Plug 'preservim/nerdcommenter'
-    Plug 'vim-airline/vim-airline' 
+    Plug 'vim-airline/vim-airline'
+    Plug 'voldikss/vim-floaterm'
     " Telescope, treesitter, harpoon, nvim commenter, nvim cmp
 call plug#end()
 endif
@@ -81,6 +82,10 @@ imap <C-/> <C-o><plug>NERDCommenterToggle
 
 " Visual mode as well
 vmap <C-_> <plug>NERDCommenterToggle
+
+" Floating terminal keybinds
+let g:floaterm_keymap_toggle = '<C-\>'
+
 
 " Defaults to 4000
 set updatetime=300
