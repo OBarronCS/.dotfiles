@@ -5,8 +5,8 @@ filetype plugin on " Loads plugin file for the file
 filetype indent on " Indent file, autoindentation
 syntax on
 set number " line numbers
-set relativenumber " relative line numbers
-set signcolumn=yes " Extra error/message column on left
+"set relativenumber " relative line numbers
+"set signcolumn=yes " Extra error/message column on left
 
 set mouse=a " mouse editing
 set ttymouse=sgr " Make mouse work correctly in tmux. xterm2 also works
