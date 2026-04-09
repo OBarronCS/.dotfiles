@@ -34,28 +34,31 @@ else
     print_info "fzf already installed"
 fi
 
+if command -v vim &> /dev/null; then
+    print_info "Installing vim-plug"
+    if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
+        curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+
+        # This line causing issues: even though the script succeeds, outer script exits
+        bash -c "vim -es -u ~/.vimrc +PlugInstall +qa" </dev/null >/dev/null 2>&1
+    fi
+fi
+
+if command -v tmux &> /dev/null; then
+    print_info "Installing tmux plugin manager"
+    if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
+        mkdir -p ~/.tmux/plugins
+        git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+        ~/.tmux/plugins/tpm/bin/install_plugins
+    fi
+fi
+
 # If we have sudo, and can run it without prompting
 if command -v sudo &> /dev/null && sudo -n true 2> /dev/null; then
     # Install tmux bash autocomplete
     print_info "Installing tmux bash autocompletions"
     curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux | sudo tee /etc/bash_completion.d/tmux > /dev/null
-fi
- 
-# Install vim-plug
-print_info "Installing vim-plug"
-if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
-    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-
-    # This line causing issues: even though the script succeeds, outer script exits
-    bash -c "vim -es -u ~/.vimrc +PlugInstall +qa" </dev/null >/dev/null 2>&1
-fi
-
-print_info "Installing tmux plugin manager"
-if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
-    mkdir -p ~/.tmux/plugins
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-    ~/.tmux/plugins/tpm/bin/install_plugins
 fi
 
 print_info "Done setting up .dotfiles"
