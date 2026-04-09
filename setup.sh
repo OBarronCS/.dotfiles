@@ -14,19 +14,13 @@ if [ ! -d "${HOME}/.fzf" ]; then
 fi
 
 
-# Sudo often not in containers
-if command -v sudo &> /dev/null
-then
-    # Start sudo timeout
-    echo "Running sudo to start timeout to install tmux autocomplete"
-    sudo echo "Thanks!" 
-
+# If we have sudo, and can run it without prompting
+if command -v sudo &> /dev/null && sudo -n true 2> /dev/null; then
     # Install tmux bash autocomplete
     curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux | sudo tee /etc/bash_completion.d/tmux > /dev/null
 fi
  
 # Install vim-plug
-
 if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
 
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
