@@ -40,7 +40,8 @@ if command -v vim &> /dev/null; then
         curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
             https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-        # This line causing issues: even though the script succeeds, outer script exits
+        # Need the shell redirections, otherwise there is chaos.
+        # Causing outer script to fail, bash to not track where current command being run is (skips to random point)
         bash -c "vim -es -u ~/.vimrc +PlugInstall +qa" </dev/null >/dev/null 2>&1
     fi
 fi
