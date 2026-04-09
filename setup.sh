@@ -51,11 +51,11 @@ fi
 #     vim +'PlugInstall --sync' +qa
 # fi
 
-# print_info "Installing tmux plugin manager"
-# if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
-#     mkdir -p ~/.tmux/plugins
-#     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-#     ~/.tmux/plugins/tpm/bin/install_plugins
-# fi
+print_info "Installing tmux plugin manager"
+if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
+    mkdir -p ~/.tmux/plugins
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    ~/.tmux/plugins/tpm/bin/install_plugins
+fi
 
 print_info "Done setting up .dotfiles"
