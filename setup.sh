@@ -34,12 +34,12 @@ else
     print_info "fzf already installed"
 fi
 
-# If we have sudo, and can run it without prompting
-# if command -v sudo &> /dev/null && sudo -n true 2> /dev/null; then
-#     # Install tmux bash autocomplete
-#     print_info "Installing tmux bash autocompletions"
-#     curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux | sudo tee /etc/bash_completion.d/tmux > /dev/null
-# fi
+If we have sudo, and can run it without prompting
+if command -v sudo &> /dev/null && sudo -n true 2> /dev/null; then
+    # Install tmux bash autocomplete
+    print_info "Installing tmux bash autocompletions"
+    curl https://raw.githubusercontent.com/imomaliev/tmux-bash-completion/master/completions/tmux | sudo tee /etc/bash_completion.d/tmux > /dev/null
+fi
  
 # Install vim-plug
 # print_info "Installing vim-plug"
