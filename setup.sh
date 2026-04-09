@@ -48,9 +48,7 @@ if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
     # This line causing issues: even though the script succeeds, outer script exits
-    bash -c "vim -es -u ~/.vimrc +PlugInstall +qa"
-
-    # </dev/null >/dev/null 2>&1
+    bash -c "vim -es -u ~/.vimrc +PlugInstall +qa" </dev/null >/dev/null 2>&1
 fi
 
 print_info "Installing tmux plugin manager"
