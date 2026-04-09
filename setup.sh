@@ -47,7 +47,10 @@ if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-    # vim -es -u ~/.vimrc +PlugInstall +qa
+    # This line causing issues: even though the script succeeds, outer script exits
+    (
+        vim -es -u ~/.vimrc +PlugInstall +qa
+    )
 fi
 
 print_info "Installing tmux plugin manager"
