@@ -34,7 +34,7 @@ else
     print_info "fzf already installed"
 fi
 
-If we have sudo, and can run it without prompting
+# If we have sudo, and can run it without prompting
 if command -v sudo &> /dev/null && sudo -n true 2> /dev/null; then
     # Install tmux bash autocomplete
     print_info "Installing tmux bash autocompletions"
