@@ -49,3 +49,4 @@ if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
     ~/.tmux/plugins/tpm/bin/install_plugins
 fi
 
+print_info "Done setting up .dotfiles"
