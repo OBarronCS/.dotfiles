@@ -42,14 +42,14 @@ if command -v sudo &> /dev/null && sudo -n true 2> /dev/null; then
 fi
  
 # Install vim-plug
-# print_info "Installing vim-plug"
-# if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
+print_info "Installing vim-plug"
+if [ ! -f "${HOME}/.vim/autoload/plug.vim" ]; then
 
-#     curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-#         https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
-#     vim +'PlugInstall --sync' +qa
-# fi
+    vim +'PlugInstall --sync' +qa
+fi
 
 print_info "Installing tmux plugin manager"
 if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
