@@ -19,11 +19,11 @@ function print_info {
 }
 
 # These lines will fail if they would override existing files
-ln -s ~/.dotfiles/.vimrc ~/.vimrc 
-ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf 
-ln -s ~/.dotfiles/.inputrc ~/.inputrc
+ln -s ~/.dotfiles/.vimrc ~/.vimrc 2>/dev/null || true
+ln -s ~/.dotfiles/.tmux.conf ~/.tmux.conf 2>/dev/null || true
+ln -s ~/.dotfiles/.inputrc ~/.inputrc 2>/dev/null || true
 mkdir -p ~/.config/kitty
-ln -s ~/.dotfiles/kitty.conf ~/.config/kitty/kitty.conf
+ln -s ~/.dotfiles/kitty.conf ~/.config/kitty/kitty.conf 2>/dev/null || true
 
 
 print_info "Installing fzf"
