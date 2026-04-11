@@ -51,6 +51,12 @@ if command -v tmux &> /dev/null; then
     if [ ! -d "${HOME}/.tmux/plugins/tpm" ]; then
         mkdir -p ~/.tmux/plugins
         git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+        # If currently in a tmux session, reload the config so the install succeeds
+        if [ -n "$TMUX" ]; then
+            tmux source-file ~/.tmux.conf
+        fi
+
         ~/.tmux/plugins/tpm/bin/install_plugins
     fi
 fi
