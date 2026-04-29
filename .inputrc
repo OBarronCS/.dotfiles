@@ -5,3 +5,4 @@ set bind-tty-special-chars off
 
 
 set isearch-terminators "\r\n\033"
+
