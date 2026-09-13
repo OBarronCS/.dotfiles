@@ -42,7 +42,6 @@ set showmode " Show what mode I am currently in
 if ! empty(globpath(&rtp, 'autoload/plug.vim')) 
 call plug#begin()
     Plug 'Raimondi/delimitMate'
-    "Plug 'jiangmiao/auto-pairs'
     Plug '~/.fzf' "Since I downloaded fzf using git
     Plug 'junegunn/fzf.vim' "Fuzzy searching!
     Plug 'preservim/nerdtree'
