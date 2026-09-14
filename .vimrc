@@ -8,6 +8,18 @@ set number " line numbers
 "set relativenumber " relative line numbers
 "set signcolumn=yes " Extra error/message column on left
 
+let g:osc52_force_avail = v:true
+let g:osc52_disable_paste = v:true
+
+silent! packadd osc52
+silent! set clipmethod+=osc52
+silent! set clipboard=unnamedplus
+
+let mapleader = " " "Set space as custom keyboard shortcut prefix
+
+"nnoremap <leader>y "+y
+"xnoremap <leader>y "+y
+
 set mouse=a " mouse editing
 set ttymouse=sgr " Make mouse work correctly in tmux. xterm2 also works
 set termguicolors " Makes colors work in tmux
@@ -57,7 +69,6 @@ endif
 set background=dark
 "hi Normal guibg=NONE ctermbg=NONE
 
-let mapleader = " " "Set space as custom keyboard shortcut prefix
 nnoremap <leader>pv :Ex<CR>
 nnoremap <C-p> :Files<CR>
 map <C-F> :Lines<CR>
